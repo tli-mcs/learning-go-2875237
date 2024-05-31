@@ -1,24 +1,26 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
-const aConst int = 64
-
 func main() {
-	var aString string = "The format is so strange!"
-	fmt.Println(aString)
-	fmt.Printf("The variable is of type: %T\n", aString)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter text: ")
+	text, _ := reader.ReadString('\n')
+	fmt.Println(text)
 
-	var anInteger int = 42
-	fmt.Println(anInteger)
+	fmt.Print("Enter a number: ")
+	numInput, _ := reader.ReadString('\n')
+	aFloat, err := strconv.ParseFloat(strings.TrimSpace(numInput), 64)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(aFloat)
+	}
 
-	var anotherString = "This is anothe string"
-	fmt.Println(anotherString)
-	fmt.Printf("The variable is of type: %T\n", anotherString)
-
-	myString := "This is a string too"
-	fmt.Println(myString)
-	fmt.Printf("The variable is of type: %T\n", myString)
 }
