@@ -2,26 +2,24 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 func main() {
-	var colors = []string{"red", "green", "blue"}
-	fmt.Println(colors)
-	colors = append(colors, "purple")
-	fmt.Println(colors)
-	colors = append(colors[1:len(colors)])
-	fmt.Println(colors)
+	states := make(map[string]string)
+	fmt.Println(states)
+	states["WA"] = "Washington"
+	states["OR"] = "Oregon"
+	states["CA"] = "California"
+	fmt.Println(states)
 
-	nubmers := make([]int, 5)
-	nubmers[0] = 134
-	nubmers[1] = 72
-	nubmers[2] = 237
-	nubmers[3] = 736
-	nubmers[4] = 123
-	fmt.Println(nubmers)
+	california := states["CA"]
+	fmt.Println(california)
 
-	sort.Ints(nubmers)
-	fmt.Println(nubmers)
+	delete(states, "OR")
+	states["NY"] = "New York"
+	fmt.Println(states)
 
+	for k, v := range states {
+		fmt.Printf("%v: %v\n", k, v)
+	}
 }
