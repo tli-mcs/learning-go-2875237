@@ -2,15 +2,14 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
-	i1, i2, i3 := 12, 45, 68
-	intSum := i1 + i2 + i3
-	fmt.Print("Integer Sum: ", intSum, "\n")
+	n := time.Now()
+	fmt.Println("I recorded the time as", n)
 
-	f1, f2, f3 := 23.5, 65.1, 76.3
-	floatSum := f1 + f2 + f3
-	fmt.Printf("Float Sum: %.2f\n", floatSum)
-
+	t := time.Date(2019, time.November, 10, 23, 0, 0, 0, time.UTC)
+	fmt.Println("Go lunched at ", t)
+	fmt.Println(t.Format(time.Kitchen))
 }
