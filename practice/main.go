@@ -5,15 +5,15 @@ import (
 )
 
 func main() {
-	anInt := 42
-	var p = &anInt
-	fmt.Println(*p)
+	var colors [3]string
+	colors[0] = "Red"
+	colors[1] = "Green"
+	colors[2] = "Blue"
+	fmt.Println(colors)
+	fmt.Println(colors[2])
 
-	value1 := 42.13
-	pointer1 := &value1
+	var numbers = [5]int{1, 2, 3, 4, 5}
+	fmt.Println(numbers)
 
-	fmt.Println(*pointer1)
-	*pointer1 = *pointer1 / 31
-	fmt.Println(*pointer1)
-	fmt.Println(value1)
+	fmt.Println("Length of colors array is", len(colors))
 }
