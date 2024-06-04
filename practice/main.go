@@ -1,25 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"log"
+	"net/http"
+	"os"
+
+	"github.com/path/to/handler" // Import the missing package "handler"
 )
 
 func main() {
-	states := make(map[string]string)
-	fmt.Println(states)
-	states["WA"] = "Washington"
-	states["OR"] = "Oregon"
-	states["CA"] = "California"
-	fmt.Println(states)
-
-	california := states["CA"]
-	fmt.Println(california)
-
-	delete(states, "OR")
-	states["NY"] = "New York"
-	fmt.Println(states)
-
-	for k, v := range states {
-		fmt.Printf("%v: %v\n", k, v)
-	}
+	hh := handler.NewHello(log.New(os.Stdout, "Hello: ", log.LstdFlags))
+	http.ListenAndServe(":8081", nil)
 }
